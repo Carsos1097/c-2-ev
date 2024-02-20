@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define NPALABRAS 10
+#define NPALABRAS 5
 
 //Escribe un programa que reciba 10 palabras
 //Las guarde en una lista de punteros, haciendo reserva dinámica
@@ -16,7 +16,7 @@ int main(void) {
   int longitud;
   int nveces;
   //Defino el resto de las variables
- 
+
 
   //Leo las palabras
   for(cont=0;cont<NPALABRAS;cont++){
@@ -27,36 +27,32 @@ int main(void) {
     strcpy(palabras[cont], auxiliar);
   }
   //Muestro la lista tal cual
-  printf("************************");
-  printf("*  LISTA DE PALABRAS   *");
-  printf("************************");
+  printf("\n************************");
+  printf("\n*  LISTA DE PALABRAS   *");
+  printf("\n************************");
   for(cont=0;cont<NPALABRAS;cont++){
     printf("\n %s",palabras[cont]);
   }
   //Ordeno la lista por su longitud por el método de la burbuja
-  for(nveces=1;nveces>NPALABRAS-1;nveces++){
-    for(cont=0;cont<NPALABRAS-2;cont
-
+  for(nveces=1;nveces<NPALABRAS-1;nveces++){
+    for(cont=0;cont<NPALABRAS-1;cont++){
+      printf("\nlongitud palabra %d:%d",cont,strlen(palabras[cont]));
+      printf("\nlongitud palabra %d:%d",cont+1,strlen(palabras[cont+1]));
       if(strlen(palabras[cont])>strlen(palabras[cont+1])){
+        printf("\nCambio %d con %d",cont,cont+1);
         pintercambio=palabras[cont];
         palabras[cont]=palabras[cont+1];
         palabras[cont+1]=pintercambio;
       }
     }
-   
+
   }
 
   //Vuelvo a mostrar la lista
-  printf("********************************");
-  printf("*  LISTA DE PALABRAS ORDENADA  *");
-  printf("********************************");
+  printf("\n********************************");
+  printf("\n*  LISTA DE PALABRAS ORDENADA  *");
+  printf("\n********************************");
   for(cont=0;cont<NPALABRAS;cont++){
     printf("\n %s",palabras[cont]);
   }
-
-
-
-
-
   return 0;
-}
